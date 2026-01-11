@@ -12,33 +12,33 @@ SZENARIO A: CPU-BOUND (Fibonacci-Berechnung)
 Running 30s test @ http://localhost:8000/cpu/30
   4 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.01s   561.38ms   1.89s    57.14%
-    Req/Sec     2.57      2.09    10.00     77.73%
+    Latency     1.05s   562.82ms   1.92s    57.14%
+    Req/Sec     3.56      3.17    10.00     77.13%
   Latency Distribution
-     50%    1.08s 
-     75%    1.48s 
-     90%    1.74s 
-     99%    1.89s 
-  211 requests in 30.09s, 44.51KB read
-  Socket errors: connect 0, read 0, write 0, timeout 197
-Requests/sec:      7.01
-Transfer/sec:      1.48KB
+     50%    1.16s 
+     75%    1.52s 
+     90%    1.77s 
+     99%    1.92s 
+  223 requests in 30.06s, 47.04KB read
+  Socket errors: connect 0, read 0, write 0, timeout 209
+Requests/sec:      7.42
+Transfer/sec:      1.56KB
 
 --- Flask CPU-Bound ---
 Running 30s test @ http://localhost:8001/cpu/30
   4 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.05s   565.45ms   1.95s    54.29%
-    Req/Sec    13.96      9.03    40.00     73.60%
+    Latency     1.23s   530.16ms   1.95s    61.11%
+    Req/Sec    15.06      9.35    40.00     68.99%
   Latency Distribution
-     50%    1.07s 
-     75%    1.48s 
-     90%    1.87s 
+     50%    1.27s 
+     75%    1.70s 
+     90%    1.92s 
      99%    1.95s 
-  566 requests in 30.09s, 129.89KB read
-  Socket errors: connect 0, read 0, write 0, timeout 531
-Requests/sec:     18.81
-Transfer/sec:      4.32KB
+  477 requests in 30.08s, 109.47KB read
+  Socket errors: connect 0, read 0, write 0, timeout 459
+Requests/sec:     15.86
+Transfer/sec:      3.64KB
 
 ============================================================
 SZENARIO B: I/O-BOUND (Simulierte DB-Abfrage 100ms)
@@ -48,31 +48,31 @@ SZENARIO B: I/O-BOUND (Simulierte DB-Abfrage 100ms)
 Running 30s test @ http://localhost:8000/io/123
   4 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   103.19ms    2.95ms 152.97ms   94.59%
-    Req/Sec   243.27     16.19   324.00     89.38%
+    Latency   105.96ms   13.25ms 321.36ms   96.62%
+    Req/Sec   238.44     29.77   302.00     90.08%
   Latency Distribution
-     50%  102.60ms
-     75%  103.52ms
-     90%  105.02ms
-     99%  112.12ms
-  29061 requests in 30.05s, 5.65MB read
-Requests/sec:    967.13
-Transfer/sec:    192.67KB
+     50%  103.32ms
+     75%  105.53ms
+     90%  110.03ms
+     99%  145.69ms
+  28383 requests in 30.10s, 5.52MB read
+Requests/sec:    943.09
+Transfer/sec:    187.88KB
 
 --- Flask I/O-Bound ---
 Running 30s test @ http://localhost:8001/io/123
   4 threads and 100 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.02s   556.91ms   1.92s    57.89%
-    Req/Sec    16.72     11.34    40.00     72.69%
+    Latency     1.01s   557.38ms   1.92s    57.89%
+    Req/Sec    18.14     11.04    40.00     70.43%
   Latency Distribution
-     50%    1.02s 
+     50%    1.01s 
      75%    1.52s 
      90%    1.82s 
      99%    1.92s 
-  1188 requests in 30.06s, 258.71KB read
+  1188 requests in 30.04s, 258.71KB read
   Socket errors: connect 0, read 0, write 0, timeout 1112
-Requests/sec:     39.53
+Requests/sec:     39.55
 Transfer/sec:      8.61KB
 
 ============================================================
