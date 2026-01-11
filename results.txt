@@ -1,0 +1,11 @@
+FastAPI Results:
+Running 30s test @ http://localhost:8000/items/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   106.16ms    6.17ms 204.29ms   93.31%
+    Req/Sec   236.37     18.24   252.00     90.64%
+  28217 requests in 30.05s, 4.87MB read
+Requests/sec:    938.93
+Transfer/sec:    165.97KB
+
+Flask Results:
