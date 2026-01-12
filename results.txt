@@ -79,3 +79,433 @@ Transfer/sec:      8.58KB
 BENCHMARK ABGESCHLOSSEN
 Ergebnisse gespeichert in: results.txt
 ============================================================
+
+############################################################
+# BENCHMARK-DURCHLAUF: 2026-01-12 11:03:21
+############################################################
+
+============================================================
+BENCHMARK: FastAPI (ASGI) vs Flask (WSGI)
+Konfiguration: 30s Laufzeit, 100 Connections, 4 Threads
+Fibonacci N=30 für CPU-Bound Tests
+============================================================
+
+============================================================
+SZENARIO A: CPU-BOUND (Fibonacci-Berechnung)
+============================================================
+
+--- FastAPI CPU-Bound ---
+Running 30s test @ http://localhost:8000/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.07s   563.73ms   1.92s    66.67%
+    Req/Sec     3.80      2.70    10.00     68.71%
+  Latency Distribution
+     50%    1.15s 
+     75%    1.61s 
+     90%    1.77s 
+     99%    1.92s 
+  147 requests in 30.17s, 31.01KB read
+  Socket errors: connect 0, read 0, write 0, timeout 135
+Requests/sec:      4.87
+Transfer/sec:      1.03KB
+
+--- Flask CPU-Bound ---
+Running 30s test @ http://localhost:8001/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.18s   576.84ms   1.96s    58.33%
+    Req/Sec     6.90      5.07    30.00     82.07%
+  Latency Distribution
+     50%    1.17s 
+     75%    1.81s 
+     90%    1.90s 
+     99%    1.96s 
+  188 requests in 30.10s, 43.14KB read
+  Socket errors: connect 0, read 0, write 0, timeout 176
+Requests/sec:      6.25
+Transfer/sec:      1.43KB
+
+============================================================
+SZENARIO B: I/O-BOUND (Simulierte DB-Abfrage 100ms)
+============================================================
+
+--- FastAPI I/O-Bound ---
+Running 30s test @ http://localhost:8000/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   127.09ms   32.01ms 377.83ms   88.58%
+    Req/Sec   202.67     63.57   273.00     81.84%
+  Latency Distribution
+     50%  115.62ms
+     75%  134.25ms
+     90%  163.54ms
+     99%  254.63ms
+  23690 requests in 30.10s, 4.61MB read
+Requests/sec:    787.11
+Transfer/sec:    156.81KB
+
+--- Flask I/O-Bound ---
+Running 30s test @ http://localhost:8001/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.03s   562.10ms   1.95s    57.89%
+    Req/Sec    14.97      8.38    40.00     83.50%
+  Latency Distribution
+     50%    1.03s 
+     75%    1.53s 
+     90%    1.83s 
+     99%    1.95s 
+  1180 requests in 30.10s, 256.97KB read
+  Socket errors: connect 0, read 0, write 0, timeout 1104
+Requests/sec:     39.20
+Transfer/sec:      8.54KB
+
+============================================================
+BENCHMARK ABGESCHLOSSEN
+Ergebnisse gespeichert in: results.txt
+============================================================
+
+############################################################
+# BENCHMARK-DURCHLAUF: 2026-01-12 11:05:41
+############################################################
+
+============================================================
+BENCHMARK: FastAPI (ASGI) vs Flask (WSGI)
+Konfiguration: 30s Laufzeit, 100 Connections, 4 Threads
+Fibonacci N=30 für CPU-Bound Tests
+============================================================
+
+============================================================
+SZENARIO A: CPU-BOUND (Fibonacci-Berechnung)
+============================================================
+
+--- FastAPI CPU-Bound ---
+Running 30s test @ http://localhost:8000/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.03s   563.89ms   1.90s    57.14%
+    Req/Sec     1.93      1.71    10.00     89.06%
+  Latency Distribution
+     50%    1.12s 
+     75%    1.50s 
+     90%    1.76s 
+     99%    1.90s 
+  192 requests in 30.07s, 40.50KB read
+  Socket errors: connect 0, read 0, write 0, timeout 178
+Requests/sec:      6.39
+Transfer/sec:      1.35KB
+
+--- Flask CPU-Bound ---
+Running 30s test @ http://localhost:8001/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.08s   551.29ms   1.98s    57.50%
+    Req/Sec    11.71      7.72    40.00     67.07%
+  Latency Distribution
+     50%    1.12s 
+     75%    1.55s 
+     90%    1.90s 
+     99%    1.98s 
+  635 requests in 30.08s, 145.73KB read
+  Socket errors: connect 0, read 0, write 0, timeout 595
+Requests/sec:     21.11
+Transfer/sec:      4.84KB
+
+============================================================
+SZENARIO B: I/O-BOUND (Simulierte DB-Abfrage 100ms)
+============================================================
+
+--- FastAPI I/O-Bound ---
+Running 30s test @ http://localhost:8000/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   104.73ms    5.04ms 176.98ms   93.57%
+    Req/Sec   239.60     22.31   252.00     89.38%
+  Latency Distribution
+     50%  103.50ms
+     75%  105.13ms
+     90%  107.94ms
+     99%  124.46ms
+  28631 requests in 30.05s, 5.57MB read
+Requests/sec:    952.63
+Transfer/sec:    189.79KB
+
+--- Flask I/O-Bound ---
+Running 30s test @ http://localhost:8001/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.01s   557.98ms   1.93s    57.89%
+    Req/Sec    19.15     11.14    40.00     75.67%
+  Latency Distribution
+     50%    1.01s 
+     75%    1.52s 
+     90%    1.82s 
+     99%    1.93s 
+  1188 requests in 30.05s, 258.71KB read
+  Socket errors: connect 0, read 0, write 0, timeout 1112
+Requests/sec:     39.54
+Transfer/sec:      8.61KB
+
+============================================================
+BENCHMARK ABGESCHLOSSEN
+Ergebnisse gespeichert in: results.txt
+============================================================
+
+############################################################
+# BENCHMARK-DURCHLAUF: 2026-01-12 11:07:59
+############################################################
+
+============================================================
+BENCHMARK: FastAPI (ASGI) vs Flask (WSGI)
+Konfiguration: 30s Laufzeit, 100 Connections, 4 Threads
+Fibonacci N=30 für CPU-Bound Tests
+============================================================
+
+============================================================
+SZENARIO A: CPU-BOUND (Fibonacci-Berechnung)
+============================================================
+
+--- FastAPI CPU-Bound ---
+Running 30s test @ http://localhost:8000/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.05s   565.34ms   1.92s    57.14%
+    Req/Sec     3.88      2.92    10.00     79.63%
+  Latency Distribution
+     50%    1.13s 
+     75%    1.51s 
+     90%    1.78s 
+     99%    1.92s 
+  216 requests in 30.06s, 45.56KB read
+  Socket errors: connect 0, read 0, write 0, timeout 202
+Requests/sec:      7.18
+Transfer/sec:      1.52KB
+
+--- Flask CPU-Bound ---
+Running 30s test @ http://localhost:8001/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.11s   544.41ms   1.96s    57.14%
+    Req/Sec     9.43      6.80    40.00     79.03%
+  Latency Distribution
+     50%    1.11s 
+     75%    1.53s 
+     90%    1.88s 
+     99%    1.96s 
+  616 requests in 30.10s, 141.37KB read
+  Socket errors: connect 0, read 0, write 0, timeout 581
+Requests/sec:     20.47
+Transfer/sec:      4.70KB
+
+============================================================
+SZENARIO B: I/O-BOUND (Simulierte DB-Abfrage 100ms)
+============================================================
+
+--- FastAPI I/O-Bound ---
+Running 30s test @ http://localhost:8000/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   103.48ms    3.35ms 159.36ms   94.63%
+    Req/Sec   242.45     18.00   252.00     87.29%
+  Latency Distribution
+     50%  102.82ms
+     75%  103.77ms
+     90%  105.35ms
+     99%  113.21ms
+  28956 requests in 30.04s, 5.63MB read
+Requests/sec:    963.87
+Transfer/sec:    192.02KB
+
+--- Flask I/O-Bound ---
+Running 30s test @ http://localhost:8001/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.01s   557.38ms   1.93s    57.89%
+    Req/Sec    10.64      3.66    20.00     80.12%
+  Latency Distribution
+     50%    1.01s 
+     75%    1.52s 
+     90%    1.82s 
+     99%    1.93s 
+  1188 requests in 30.04s, 258.71KB read
+  Socket errors: connect 0, read 0, write 0, timeout 1112
+Requests/sec:     39.55
+Transfer/sec:      8.61KB
+
+============================================================
+BENCHMARK ABGESCHLOSSEN
+Ergebnisse gespeichert in: results.txt
+============================================================
+
+############################################################
+# BENCHMARK-DURCHLAUF: 2026-01-12 11:10:18
+############################################################
+
+============================================================
+BENCHMARK: FastAPI (ASGI) vs Flask (WSGI)
+Konfiguration: 30s Laufzeit, 100 Connections, 4 Threads
+Fibonacci N=30 für CPU-Bound Tests
+============================================================
+
+============================================================
+SZENARIO A: CPU-BOUND (Fibonacci-Berechnung)
+============================================================
+
+--- FastAPI CPU-Bound ---
+Running 30s test @ http://localhost:8000/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.10s   602.85ms   1.99s    66.67%
+    Req/Sec     4.37      3.15    10.00     66.01%
+  Latency Distribution
+     50%    1.20s 
+     75%    1.69s 
+     90%    1.83s 
+     99%    1.99s 
+  203 requests in 30.09s, 42.82KB read
+  Socket errors: connect 0, read 0, write 0, timeout 191
+Requests/sec:      6.75
+Transfer/sec:      1.42KB
+
+--- Flask CPU-Bound ---
+Running 30s test @ http://localhost:8001/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.08s   523.60ms   1.88s    53.12%
+    Req/Sec     9.47      6.42    30.00     70.44%
+  Latency Distribution
+     50%    1.10s 
+     75%    1.64s 
+     90%    1.81s 
+     99%    1.88s 
+  556 requests in 30.08s, 127.60KB read
+  Socket errors: connect 0, read 0, write 0, timeout 524
+Requests/sec:     18.49
+Transfer/sec:      4.24KB
+
+============================================================
+SZENARIO B: I/O-BOUND (Simulierte DB-Abfrage 100ms)
+============================================================
+
+--- FastAPI I/O-Bound ---
+Running 30s test @ http://localhost:8000/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   104.36ms    3.67ms 147.92ms   90.77%
+    Req/Sec   240.51     21.72   252.00     89.72%
+  Latency Distribution
+     50%  103.34ms
+     75%  104.90ms
+     90%  107.75ms
+     99%  120.64ms
+  28746 requests in 30.07s, 5.59MB read
+Requests/sec:    955.84
+Transfer/sec:    190.42KB
+
+--- Flask I/O-Bound ---
+Running 30s test @ http://localhost:8001/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.01s   556.79ms   1.92s    57.89%
+    Req/Sec    21.42     12.31    40.00     70.55%
+  Latency Distribution
+     50%    1.01s 
+     75%    1.52s 
+     90%    1.82s 
+     99%    1.92s 
+  1188 requests in 30.05s, 258.71KB read
+  Socket errors: connect 0, read 0, write 0, timeout 1112
+Requests/sec:     39.53
+Transfer/sec:      8.61KB
+
+============================================================
+BENCHMARK ABGESCHLOSSEN
+Ergebnisse gespeichert in: results.txt
+============================================================
+
+############################################################
+# BENCHMARK-DURCHLAUF: 2026-01-12 11:12:37
+############################################################
+
+============================================================
+BENCHMARK: FastAPI (ASGI) vs Flask (WSGI)
+Konfiguration: 30s Laufzeit, 100 Connections, 4 Threads
+Fibonacci N=30 für CPU-Bound Tests
+============================================================
+
+============================================================
+SZENARIO A: CPU-BOUND (Fibonacci-Berechnung)
+============================================================
+
+--- FastAPI CPU-Bound ---
+Running 30s test @ http://localhost:8000/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.05s   579.56ms   1.94s    57.14%
+    Req/Sec     2.53      2.22    10.00     80.98%
+  Latency Distribution
+     50%    1.13s 
+     75%    1.54s 
+     90%    1.80s 
+     99%    1.94s 
+  205 requests in 30.07s, 43.24KB read
+  Socket errors: connect 0, read 0, write 0, timeout 191
+Requests/sec:      6.82
+Transfer/sec:      1.44KB
+
+--- Flask CPU-Bound ---
+Running 30s test @ http://localhost:8001/cpu/30
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.13s   535.06ms   1.98s    58.62%
+    Req/Sec     9.13      6.90    30.00     69.97%
+  Latency Distribution
+     50%    1.23s 
+     75%    1.53s 
+     90%    1.93s 
+     99%    1.98s 
+  463 requests in 30.07s, 106.25KB read
+  Socket errors: connect 0, read 0, write 0, timeout 434
+Requests/sec:     15.40
+Transfer/sec:      3.53KB
+
+============================================================
+SZENARIO B: I/O-BOUND (Simulierte DB-Abfrage 100ms)
+============================================================
+
+--- FastAPI I/O-Bound ---
+Running 30s test @ http://localhost:8000/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   104.48ms    4.59ms 174.34ms   93.19%
+    Req/Sec   240.28     21.22   259.00     89.21%
+  Latency Distribution
+     50%  103.40ms
+     75%  104.99ms
+     90%  107.45ms
+     99%  121.86ms
+  28707 requests in 30.08s, 5.58MB read
+Requests/sec:    954.22
+Transfer/sec:    190.10KB
+
+--- Flask I/O-Bound ---
+Running 30s test @ http://localhost:8001/io/123
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.02s   556.94ms   1.93s    57.89%
+    Req/Sec    28.10     15.61    40.00     73.46%
+  Latency Distribution
+     50%    1.02s 
+     75%    1.52s 
+     90%    1.82s 
+     99%    1.93s 
+  1188 requests in 30.06s, 258.71KB read
+  Socket errors: connect 0, read 0, write 0, timeout 1112
+Requests/sec:     39.52
+Transfer/sec:      8.61KB
+
+============================================================
+BENCHMARK ABGESCHLOSSEN
+Ergebnisse gespeichert in: results.txt
+============================================================
