@@ -14,8 +14,14 @@ cleanup() {
 }
 trap cleanup SIGINT SIGTERM EXIT
 
-# Clear previous results
-> results.txt
+# Timestamp für diesen Durchlauf
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+echo "" >> results.txt
+echo "############################################################" | tee -a results.txt
+echo "# BENCHMARK-DURCHLAUF: ${TIMESTAMP}" | tee -a results.txt
+echo "############################################################" | tee -a results.txt
+echo "" | tee -a results.txt
 
 echo "============================================================" | tee -a results.txt
 echo "BENCHMARK: FastAPI (ASGI) vs Flask (WSGI)" | tee -a results.txt
