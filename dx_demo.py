@@ -1,6 +1,7 @@
 from typing import Optional
 import uvicorn
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 
 class User(BaseModel):
@@ -9,6 +10,10 @@ class User(BaseModel):
     email: Optional[str] = None
 
 app = FastAPI()
+
+@app.get("/")
+def root():
+    return RedirectResponse(url="/docs")
 
 @app.post("/user")
 def create_user(user: User):
